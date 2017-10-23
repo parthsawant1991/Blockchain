@@ -18,12 +18,11 @@ public class Hasher {
 			String word = sc.next();
 			hashfunc.put(word, getHashInt(word));
 		}
-		
-		
-		for(String wd : hashfunc.keySet()) {
-			System.out.println("Word: "+ wd + " hash: "+hashfunc.get(wd));
+
+		for (String wd : hashfunc.keySet()) {
+			System.out.println("Word: " + wd + " hash: " + hashfunc.get(wd));
 		}
-		
+
 	}
 
 	public static int getHashInt(String s) {
@@ -32,14 +31,14 @@ public class Hasher {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			byte[] encodedhash = digest.digest(s.getBytes(StandardCharsets.UTF_8));
-			
-			for(byte b: encodedhash)
-			System.out.print(b);
-			
+
+			for (byte b : encodedhash)
+				System.out.print(b);
+
 			System.out.println();
-			
-			//hash = Math.abs(ByteBuffer.wrap(encodedhash).getInt() % 1000000);
-			//System.out.println("Hash: " + hash);
+
+			// hash = Math.abs(ByteBuffer.wrap(encodedhash).getInt() % 1000000);
+			// System.out.println("Hash: " + hash);
 		} catch (Exception e) {
 		}
 		return hash;
