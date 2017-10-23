@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Hasher {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Scanner sc = new Scanner(System.in);
 
@@ -25,7 +24,6 @@ public class Hasher {
 			System.out.println("Word: "+ wd + " hash: "+hashfunc.get(wd));
 		}
 		
-		
 	}
 
 	public static int getHashInt(String s) {
@@ -34,8 +32,14 @@ public class Hasher {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			byte[] encodedhash = digest.digest(s.getBytes(StandardCharsets.UTF_8));
-			hash = Math.abs(ByteBuffer.wrap(encodedhash).getInt() % 1000000);
-			// System.out.println("Hash: " + hash);
+			
+			for(byte b: encodedhash)
+			System.out.print(b);
+			
+			System.out.println();
+			
+			//hash = Math.abs(ByteBuffer.wrap(encodedhash).getInt() % 1000000);
+			//System.out.println("Hash: " + hash);
 		} catch (Exception e) {
 		}
 		return hash;
